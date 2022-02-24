@@ -18,13 +18,11 @@ class CreateProductTable extends Migration
             $table->timestamps();
             $table->string('name');
             $table->string('image');
-            $table->integer('price'); 
-            $table->integer('salse_price'); 
-            $table->string('description'); 
-            $table->integer('status'); 
-            $table->integer('category_id'); 
-            $table->timestamps('created_at');
-            $table->timestamps('updated_at');
+            $table->integer('price');
+            $table->integer('salse_price');
+            $table->string('description');
+            $table->integer('status');
+            $table->integer('category_id');
         });
     }
 
