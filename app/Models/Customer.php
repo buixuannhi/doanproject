@@ -10,6 +10,7 @@ use Illuminate\Notifications\Notifiable;
 class Customer extends Authenticatable
 {
     use HasFactory, Notifiable;
+
     protected $table = 'customer';
     /**
      * The attributes that are mass assignable.
@@ -26,9 +27,11 @@ class Customer extends Authenticatable
         'gender',
         'lasted_login'
     ];
-     public function orders(){
-         return $this->hasMany(Order::class, 'customer_id', 'id');
-     }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class, 'customer_id', 'id');
+    }
 
     /**
      * The attributes that should be hidden for arrays.

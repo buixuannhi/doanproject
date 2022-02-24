@@ -27,9 +27,9 @@ class CategoryEditRequest extends FormRequest
             'name' => 'required|unique:category|max:100,id'.request()->id,
         ];
     }
+
     public function messages()
     {
-       
         return [
             'name.required' => 'Tên danh mục không được để trống...',
             'name.unique' => 'Tên danh mục này đã tồn tại...',

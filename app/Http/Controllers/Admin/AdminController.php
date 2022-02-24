@@ -14,39 +14,35 @@ class AdminController extends Controller
     {
         return view('admin.index');
     }
+
     public function admin()
     {
         return view('admin.index');
     }
+
     public function login()
     {
         return view('admin.login');
     }
+
     public function check_login(Request $req)
     {
-        
-        // dd(Hash::make(27062002));
-        // $User = User::create([
-        //     'name' => 'Hà Văn Nghị',
-        //     'email' => 'havannghioppa@gmail.com',
-        //     'password' => bcrypt(27062002), 
-        // ]);
-            
-        $data = $req->only('email','password');
+        $data = $req->only('email', 'password');
         $email = $data['email'];
         $password = $data['password'];
 
         $check_login = Auth::guard('admin')->attempt(['email' => $email, 'password' => $password]);
-            
-        if($check_login){
-            return redirect()->route('admin.index')->with('yes','Chào mừng bạn đã đến với trang quản trị!');
+
+        if ($check_login) {
+            return redirect()->route('admin.index')->with('yes', 'Chào mừng bạn đã đến với trang quản trị!');
         }
-        return redirect()->back()->with('no','Email hoặc mật khẩu của bạn nhập không chính xác!');
+        return redirect()->back()->with('no', 'Email hoặc mật khẩu của bạn nhập không chính xác!');
     }
+
     public function logout()
     {
         Auth::logout(); //hủy section
-        return redirect()->route('admin.login')->with('no','Bạn đã thoát tranng quảm trị!');
+        return redirect()->route('admin.login')->with('no', 'Bạn đã thoát tranng quảm trị!');
     }
 }
 

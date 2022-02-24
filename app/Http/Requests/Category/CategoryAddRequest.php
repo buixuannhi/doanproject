@@ -28,6 +28,7 @@ class CategoryAddRequest extends FormRequest
             'status' => 'required'
         ];
     }
+
     public function messages()
     {
         return [
@@ -35,7 +36,7 @@ class CategoryAddRequest extends FormRequest
             'name.unique' => 'Tên danh mục này đã tồn tại...',
             'name.max' => 'Tên danh mục không được quá 100 ký tự...',
             'status.required' => 'Mời bạn chọn trạng thái danh mục...'
-            
+
         ];
     }
 }
